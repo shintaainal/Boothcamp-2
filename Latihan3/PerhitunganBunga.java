@@ -86,13 +86,13 @@ public class PerhitunganBunga {
             } else {
                 Sisa = Sisa - (Angsuran / kali);
             }
-            PerhitunganBunga daftar2 = new PerhitunganBunga();
 
             pokokCicilan = Angsuran / 12;
             bungaBulan = Sisa * Bunga;
             totalBayar = pokokCicilan + bungaBulan;
-
+        
             //isi method setMethod dengan Variable hasil hitung
+            PerhitunganBunga daftar2 = new PerhitunganBunga();
             daftar2.setPokokCicilan(pokokCicilan);
             daftar2.setSisa(Sisa);
             daftar2.setBungaBulan(bungaBulan);
