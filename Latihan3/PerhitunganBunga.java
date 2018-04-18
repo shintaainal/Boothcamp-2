@@ -77,6 +77,7 @@ public class PerhitunganBunga{
         Long Sisa;
         Sisa = Angsuran;
 
+        //rumus
         for (int i =1; i <=kali; i++) {
             if (i == 1) {
 
@@ -89,19 +90,21 @@ public class PerhitunganBunga{
             bungaBulan = Sisa * Bunga;
             totalBayar = pokokCicilan + bungaBulan;
 
-            //isi class
+            //isi method setMethod dengan Variable hasil hitung
             daftar2.setPokokCicilan(pokokCicilan);
             daftar2.setSisa(Sisa);
             daftar2.setBungaBulan(bungaBulan);
             daftar2.setTotalBayar(totalBayar);
             daftar2.setA(i);
 
+            //Mengisikan isi objek daftar ke list (daftar2)
             daftar.add(daftar2);
 
         }
 
+        //Memunculkan list dengan foreach
         for (PerhitunganBunga x : daftar){
-            System.out.println("Angsuran Ke " +x.getA() +":" +x.getSisa() +"  |  "
+            System.out.println("Angsuran Ke " +x.getA() +":" +" " +x.getSisa() +"  |  "
                     + "Cicilan per-bulan : " +x.getPokokCicilan() + " |  "
                     + "Bunga per-bulan : " +x.getBungaBulan() +"  |  "
                     + "Total Angsuran : " +x.getTotalBayar());
@@ -113,7 +116,7 @@ public class PerhitunganBunga{
 
     public static void main(String[] args){
         PerhitunganBunga objek = new PerhitunganBunga();
-        List <PerhitunganBunga> objek2 = new ArrayList<>();
+
         objek.hitungBunga();
 
     }
