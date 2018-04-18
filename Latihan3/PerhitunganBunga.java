@@ -7,12 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PerhitunganBunga{
-        private double sisa;
-        private double pokokCicilan;
-        private double bungaBulan;
-        private double totalBayar;
-        private int a;
+public class PerhitunganBunga {
+    private double sisa;
+    private double pokokCicilan;
+    private double bungaBulan;
+    private double totalBayar;
+    public  double Bunga;
+
+    public  Long Angsuran;
+    public  Long Sisa;
+
+    public  int a;
+    public  int kali = 12;
+
+    Scanner input = new Scanner(System.in);
+    List<PerhitunganBunga> daftar = new ArrayList<>();
 
     public double getSisa() {
         return sisa;
@@ -55,30 +64,23 @@ public class PerhitunganBunga{
     }
 
     public void hitungBunga() {
-        Scanner input = new Scanner(System.in);
-        int kali = 12;
-
-        List <PerhitunganBunga> daftar = new ArrayList<>();
 
         // Masukan data
         System.out.println("Masukan Jumlah Pinjaman : ");
-        Long Angsuran = input.nextLong();
-        System.out.println("");
+        Angsuran = input.nextLong();
 
         //masukan suku bunga
         System.out.println("Masukan suku bunga : ");
-        double Bunga = input.nextDouble();
+        Bunga = input.nextDouble();
 
-        //menghitung Bunga
+        //menghitung bunga flat
         Bunga = ((double) Bunga / 100) / kali;
         System.out.println("Suku bunga perbulan =" + Bunga);
         System.out.println("");
 
-        Long Sisa;
+        //Hitung semua
         Sisa = Angsuran;
-
-        //rumus
-        for (int i =1; i <=kali; i++) {
+        for (int i = 1; i <= kali; i++) {
             if (i == 1) {
 
             } else {
@@ -101,23 +103,22 @@ public class PerhitunganBunga{
             daftar.add(daftar2);
 
         }
+    }
 
-        //Memunculkan list dengan foreach
-        for (PerhitunganBunga x : daftar){
-            System.out.println("Angsuran Ke " +x.getA() +":" +" " +x.getSisa() +"  |  "
-                    + "Cicilan per-bulan : " +x.getPokokCicilan() + " |  "
-                    + "Bunga per-bulan : " +x.getBungaBulan() +"  |  "
-                    + "Total Angsuran : " +x.getTotalBayar());
-        }
-             {
-
+    public void tampil() {
+        for (PerhitunganBunga x : daftar) {
+            System.out.println("Angsuran Ke " + x.getA() + ":" + " " + x.getSisa() + "  |  "
+                    + "Cicilan per-bulan : " + x.getPokokCicilan() + " |  "
+                    + "Bunga per-bulan : " + x.getBungaBulan() + "  |  "
+                    + "Total Angsuran : " + x.getTotalBayar());
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         PerhitunganBunga objek = new PerhitunganBunga();
 
         objek.hitungBunga();
+        objek.tampil();
 
     }
 }
